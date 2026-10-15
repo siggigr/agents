@@ -51,5 +51,7 @@ phone. Then hand it to the reviewer. Fix every Blocker and Major finding
 from the review before it goes to QA, and say in the pull request how each
 one was handled.
 
-When a milestone is merged, stop and ask the owner to confirm before
-starting the next one.
+When a milestone is merged, write a short status summary for the owner,
+under 200 words: which milestone is done, what was merged, any decisions
+or deviations from the architecture, open issues, and what comes next.
+Then stop and ask the owner to confirm before starting the next one.
