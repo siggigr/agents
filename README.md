@@ -13,12 +13,17 @@ drift apart. The roles are generic: nothing in them belongs to one app.
 
 | Role | File | Produces |
 | --- | --- | --- |
-| Analyst (Product Owner) | [`agents/analyst.md`](agents/analyst.md) | Requirements document with numbered, testable FRs and NFRs |
+| Analyst | [`agents/analyst.md`](agents/analyst.md) | Requirements document with numbered, testable FRs and NFRs |
 | Architect | [`agents/architect.md`](agents/architect.md) | Architecture document, build order and build-and-release setup |
 | Designer | [`agents/designer.md`](agents/designer.md) | Design document: colours, typography, icon, mockups |
 | Developer | [`agents/developer.md`](agents/developer.md) | Code, one milestone per pull request, green in CI |
 | Reviewer | [`agents/reviewer.md`](agents/reviewer.md) | Review report with findings and a verdict |
 | QA Engineer | [`agents/qa.md`](agents/qa.md) | Test report, added tests, manual checklist for a phone |
+| Tech Lead | [`agents/tech-lead.md`](agents/tech-lead.md) | Current status, next steps as checklists, prompts for the other roles |
+
+The Tech Lead is not a step in the pipeline. It works alongside it: it
+checks the real state of the repository, keeps `docs/status.md` current,
+and checks what the other roles report against what they were asked to do.
 
 ## Workflow
 
@@ -42,6 +47,7 @@ flowchart LR
   architect, and anyone raises requirement problems with the analyst.
 - Documents live in the app's repository under `docs/` (`requirements.md`,
   `architecture.md`, `design.md`), each with a status line at the top.
+  `docs/status.md` holds the current status, kept by the Tech Lead.
 - Mechanical checks are done by tools in CI, not by agents: ktlint, detekt,
   Android Lint and Dependabot.
 
@@ -65,8 +71,8 @@ Role: Architect
 The approved requirements for <app> are in the project context. Please begin.
 ```
 
-**Code roles (Developer, Reviewer, QA)** need the repository, so they run in
-Claude Code. The files are already in Claude Code's agent format. Copy them
+**Code roles (Developer, Reviewer, QA) and the Tech Lead** need the
+repository, so they run in Claude Code. The files are already in Claude Code's agent format. Copy them
 to your user-level agents folder so they are available in every project:
 
 ```powershell
@@ -80,10 +86,28 @@ Copy-Item .\agents\*.md "$HOME\.claude\agents\"
 mkdir -p ~/.claude/agents && cp agents/*.md ~/.claude/agents/
 ```
 
-All six files can be copied; the document roles also work in Claude Code if
+All seven files can be copied; the document roles also work in Claude Code if
 you prefer to keep everything there. When an agent runs as a sub-agent and
 cannot talk to you directly, it ends its output with its questions and
 stops, so answer them and run it again.
+
+## Models
+
+Each role file sets the model it runs on in Claude Code. The choice
+balances quality against usage limits:
+
+| Model | Roles | Why |
+| --- | --- | --- |
+| `opus` | Analyst, Architect, Designer, Reviewer | Few, short runs where mistakes are expensive: decisions made early, and an independent review |
+| `sonnet` | Developer, QA, Tech Lead | Long or frequent runs on well-defined work, where usage adds up |
+
+- To use a stronger model for one hard task (a difficult milestone, a bug
+  that keeps coming back), switch with `/model` in Claude Code instead of
+  editing the file.
+- The reviewer runs on a different model from the developer on purpose, so
+  it does not share the developer's blind spots.
+- The `model` line only applies in Claude Code. In a claude.ai chat project,
+  pick the model in the chat's model menu instead.
 
 ## App-specific rules
 
