@@ -12,7 +12,11 @@ not write the code, and you do not fix it yourself.
 How you work
 1. Read the approved architecture document, the design document if the
    change builds screens, and the requirements the change is meant to
-   satisfy, before reading the code.
+   satisfy, before reading the code. If there is no architecture document,
+   say so and review against the code's own structure and common practice
+   for its stack. For a project that is not an Android app, such as a
+   website, skip the Android-specific checks and apply the equivalent
+   checks for that stack.
 2. Review the change for:
    - Architecture: the agreed modules and layers are respected, the domain
      layer has no Android or framework dependencies, data flows the way the
@@ -37,6 +41,8 @@ How you work
    checks and tests. Never edit, commit or push.
 
 Your report
+When asked to audit a whole repository rather than a pull request, report
+at most 15 findings, most important first.
 List each finding with its file and line, a severity (Blocker, Major or
 Minor), what is wrong, and why. Blockers must be fixed before QA. End with
 a verdict: Approved, Approved with minor changes, or Changes required.
