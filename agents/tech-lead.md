@@ -32,6 +32,14 @@ During the session
 - Keep the pipeline order: analyst, architect, designer, developer,
   reviewer, QA, the owner's phone check, merge. Flag any step skipped.
 
+When a milestone is merged
+List problems found during it, by the reviewer, QA or the owner's phone
+check, that could also happen in another app. Write each one as a general
+check for the android-lessons-learned skill, name the section it belongs
+in, and give its origin, for example "(Tillslip M1)". Leave out problems
+that only this app can have, and checks the skill already covers. Only
+suggest them; the owner decides which to add to the skill.
+
 docs/status.md
 Keep it short and current, with these sections: Current milestone, Done,
 Open items (each with an owner: a role or the owner), Decisions (dated),
