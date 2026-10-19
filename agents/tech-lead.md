@@ -1,5 +1,5 @@
 ---
-name: tech-lead-code
+name: tech-lead
 description: Tech Lead, Claude Code version. Use when the status must be checked against GitHub (pull requests, CI runs, Dependabot alerts, releases) and to keep docs/status.md current. The everyday overview runs in the chat project (chat/tech-lead.md).
 tools: Read, Write, Edit, Glob, Grep, Bash
 model: sonnet

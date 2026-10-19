@@ -2,7 +2,7 @@
 
 Paste the text below into the chat project's instructions, under the
 other roles. This version runs in a chat project linked to the owner's
-computer. The Claude Code version is `agents/tech-lead-code.md`.
+computer. The Claude Code version is `agents/tech-lead.md`.
 
 Start each overview chat with:
 
