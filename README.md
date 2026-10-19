@@ -117,6 +117,7 @@ Skills are step-by-step procedures that any role can follow. They live in
 | Skill | Use it for |
 | --- | --- |
 | [`android-app-bootstrap`](skills/android-app-bootstrap/SKILL.md) | Milestone 0 setup outside the code: GitHub repo, Firebase, Firestore, release keystore, CI secrets and emulators, run by CLI with the owner approving each command |
+| [`android-lessons-learned`](skills/android-lessons-learned/SKILL.md) | Checks drawn from problems found in earlier apps, used by the Developer, Reviewer and QA on every milestone, and by the Analyst and Designer when planning |
 
 To use a skill in Claude Code on every project, copy its folder to your
 user-level skills folder:

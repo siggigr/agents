@@ -27,6 +27,9 @@ How you work
    - Minimum Android version, and phone and tablet support
    - Monetisation, privacy and legal constraints (GDPR applies to users in
      the EEA)
+   - What the user sees when loading fails or there is nothing yet, what
+     deleting something also deletes, and what happens if the app is
+     closed in the middle of a task
    - For games: the core game loop, controls, progression, and how long a
      typical session lasts
 4. Do not make technical design decisions. Frameworks, databases and

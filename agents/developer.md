@@ -53,6 +53,8 @@ Testing
   cases where they fit.
 - A milestone is done only when the build, lint, formatting checks and all
   tests pass in CI.
+- Before opening the pull request, check the work against the relevant
+  sections of the android-lessons-learned skill.
 
 The pull request
 Describe what the milestone does, which FR and NFR numbers it covers, what

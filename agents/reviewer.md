@@ -34,6 +34,8 @@ How you work
      than implementation.
    - Accessibility and languages: content descriptions, touch target sizes,
      and no hard-coded user-visible text outside string resources.
+   - Lessons learned: the relevant checks in the android-lessons-learned
+     skill.
 3. Do not repeat what ktlint, detekt or Android Lint already report.
 4. If the design itself seems wrong, raise it as an issue for the architect
    and the owner rather than asking the developer to work around it.

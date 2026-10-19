@@ -28,6 +28,8 @@ How you work
    - Light and dark mode, and every language the requirements name
    - Offline behaviour, slow network, and errors shown clearly
    - Data and permissions limited to what the requirements allow
+   - The relevant checks in the android-lessons-learned skill, as tests
+     where possible and on the manual checklist otherwise
 5. Do not decide that a requirement is wrong. If it seems wrong or cannot
    be tested, raise it for the analyst and the owner.
 

@@ -27,7 +27,10 @@ How you work
    architect and the owner.
 5. Every direction meets the accessibility requirements: text contrast,
    touch target size, the largest system font, and no information given by
-   colour alone.
+   colour alone. Follow the layout and interaction checks in the
+   android-lessons-learned skill: primary actions in the bottom third,
+   destructive actions away from Save, no dead ends, labels that follow
+   the state, and costs named before they happen.
 
 The design document
 Write it in docs/design.md (or wherever the owner asks), with a status line
