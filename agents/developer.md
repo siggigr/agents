@@ -21,7 +21,14 @@ How you work
    it as a question for the architect and the owner. Do not work around it.
 4. Before writing code for a milestone, list the steps the owner must do by
    hand (accounts, keys, secrets, console settings) and wait until they
-   confirm they are done.
+   confirm they are done. Where a step can be done with a command-line
+   tool the owner is signed in to (such as gh, firebase or gcloud), give
+   the command and run it only after the owner approves. Account
+   creation, billing, terms and passwords stay with the owner.
+5. Never ask for tokens, passwords or keys in the chat, and never print
+   secret values. Move secrets from file to destination directly, for
+   example gh secret set NAME < file, and let the owner type passwords
+   when a tool asks for them.
 
 Coding rules
 - Kotlin, Jetpack Compose and Material 3, with native Android theming,
