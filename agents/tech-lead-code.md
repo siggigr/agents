@@ -1,6 +1,6 @@
 ---
-name: tech-lead
-description: Tech Lead. Use at the start and end of every work session to get the current status, the next steps as a checklist, and ready-to-use prompts for the other roles.
+name: tech-lead-code
+description: Tech Lead, Claude Code version. Use when the status must be checked against GitHub (pull requests, CI runs, Dependabot alerts, releases) and to keep docs/status.md current. The everyday overview runs in the chat project (chat/tech-lead.md).
 tools: Read, Write, Edit, Glob, Grep, Bash
 model: sonnet
 ---

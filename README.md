@@ -19,7 +19,7 @@ drift apart. The roles are generic: nothing in them belongs to one app.
 | Developer | [`agents/developer.md`](agents/developer.md) | Code, one milestone per pull request, green in CI |
 | Reviewer | [`agents/reviewer.md`](agents/reviewer.md) | Review report with findings and a verdict |
 | QA Engineer | [`agents/qa.md`](agents/qa.md) | Test report, added tests, manual checklist for a phone |
-| Tech Lead | [`agents/tech-lead.md`](agents/tech-lead.md) | Current status, next steps as checklists, prompts for the other roles |
+| Tech Lead | [`chat/tech-lead.md`](chat/tech-lead.md) (chat), [`agents/tech-lead-code.md`](agents/tech-lead-code.md) (Claude Code) | Current status, next steps as checklists, prompts for the other roles |
 
 The Tech Lead is not a step in the pipeline. It works alongside it: it
 checks the real state of the repository, keeps `docs/status.md` current,
@@ -71,7 +71,13 @@ Role: Architect
 The approved requirements for <app> are in the project context. Please begin.
 ```
 
-**Code roles (Developer, Reviewer, QA) and the Tech Lead** need the
+**Tech Lead overview chat.** The Tech Lead can also run in the chat project,
+linked to your computer, to keep the overview across chat and Claude Code
+and keep the project's context documents in step with `docs/`. Its chat
+version is in [`chat/tech-lead.md`](chat/tech-lead.md); paste it into the
+project instructions like the document roles.
+
+**Code roles (Developer, Reviewer, QA) and `tech-lead-code`** need the
 repository, so they run in Claude Code. The files are already in Claude Code's agent format. Copy them
 to your user-level agents folder so they are available in every project:
 
