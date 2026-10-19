@@ -109,6 +109,29 @@ balances quality against usage limits:
 - The `model` line only applies in Claude Code. In a claude.ai chat project,
   pick the model in the chat's model menu instead.
 
+## Skills
+
+Skills are step-by-step procedures that any role can follow. They live in
+`skills/<name>/SKILL.md`.
+
+| Skill | Use it for |
+| --- | --- |
+| [`android-app-bootstrap`](skills/android-app-bootstrap/SKILL.md) | Milestone 0 setup outside the code: GitHub repo, Firebase, Firestore, release keystore, CI secrets and emulators, run by CLI with the owner approving each command |
+
+To use a skill in Claude Code on every project, copy its folder to your
+user-level skills folder:
+
+```powershell
+# Windows (PowerShell)
+New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null
+Copy-Item -Recurse -Force .\skills\* "$HOME\.claude\skills\"
+```
+
+```bash
+# macOS / Linux
+mkdir -p ~/.claude/skills && cp -r skills/* ~/.claude/skills/
+```
+
 ## App-specific rules
 
 Anything that belongs to one app (its name, services, data rules,
@@ -121,12 +144,16 @@ milestones) goes in that app's repository, not here:
 
 ## What the owner does by hand
 
-Agents never handle accounts, money or secrets. The owner:
+Agents never handle accounts, money or secret values. Setup steps that a
+command-line tool can do (gh, firebase, keytool) may be run by an agent, but
+only after the owner has signed in to that tool personally and approved the
+command. The `android-app-bootstrap` skill follows these rules. The owner:
 
-- Creates the GitHub repository and turns on Dependabot alerts
-- Creates cloud projects (for example Firebase) and downloads config files
-- Creates and stores the release signing keystore
-- Adds secrets to the CI settings
+- Creates accounts, accepts terms and handles anything with billing
+- Signs in to gh, firebase and other tools personally
+- Approves every setup command an agent runs
+- Types the keystore passwords and stores the keystore and passwords safely
+- Turns on sign-in providers in the Firebase console
 - Sets up the Google Play developer account and submits releases
 - Approves each document, checks each milestone on a real phone, and merges
 
