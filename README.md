@@ -145,9 +145,12 @@ Anything that belongs to one app (its name, services, data rules,
 milestones) goes in that app's repository, not here:
 
 - `docs/` holds the approved requirements, architecture and design.
-- `CLAUDE.md` in the app's repository root holds short project notes that
-  Claude Code reads automatically, for example which documents to read and
-  any app-specific rules.
+- `CLAUDE.md` in the app's repository root holds the working rules every
+  role follows in that repository, which Claude Code reads automatically:
+  sources of truth, what to do when they disagree, git and pull request
+  rules, and how roles report. Start it from
+  [`templates/CLAUDE.md`](templates/CLAUDE.md); the `android-app-bootstrap`
+  skill does this in milestone 0, and the Tech Lead suggests updates.
 
 ## What the owner does by hand
 
@@ -169,3 +172,6 @@ command. The `android-app-bootstrap` skill follows these rules. The owner:
 1. Edit the role file in this repository and commit the change.
 2. Copy it again to `~/.claude/agents/` and, for document roles, into the
    chat project instructions.
+3. The Tech Lead has two versions, `agents/tech-lead.md` (Claude Code) and
+   `chat/tech-lead.md` (chat). When you change one, check whether the other
+   needs the same change.

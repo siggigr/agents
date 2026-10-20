@@ -53,13 +53,18 @@ work and is not part of this skill.
    `build/`) and `.gitattributes` (`* text=auto`, `*.bat text eol=crlf`,
    `gradlew text eol=lf`). Commit through a branch and pull request if main
    already has content.
-3. Merge settings:
+3. Add `CLAUDE.md` in the repository root, from `templates/CLAUDE.md` in
+   the agents repository (github.com/siggigr/agents). Fill in the app's
+   name, its full local check command from the architecture, and short
+   app-specific notes, and show it to the owner before committing it with
+   the first commit.
+4. Merge settings:
    `gh repo edit OWNER/REPO --enable-squash-merge --enable-merge-commit=false --enable-rebase-merge=false --delete-branch-on-merge`
-4. Dependabot alerts:
+5. Dependabot alerts:
    `gh api -X PUT repos/OWNER/REPO/vulnerability-alerts`
    The developer adds `.github/dependabot.yml` (weekly, grouped per
    ecosystem) in milestone 0.
-5. Branch protection: on a free plan with a private repo it is not
+6. Branch protection: on a free plan with a private repo it is not
    enforced. Tell the owner, and record the manual rule ("never push to
    main, merge only through pull requests") in the architecture. On a
    public or paid repo, offer a ruleset requiring pull requests and green
@@ -128,7 +133,7 @@ For each API level, use a Google Play image so Google sign-in works:
 ## Phase 6: Verify and record
 
 1. `git ls-files` shows no `.jks`, `.keystore`, `.b64`, `local.properties`
-   or `google-services.json`.
+   or `google-services.json`, and does show `CLAUDE.md`.
 2. `gh secret list`, `firebase apps:list --project PROJECT_ID` and
    `firebase apps:android:sha:list APP_ID --project PROJECT_ID` show the
    expected entries.

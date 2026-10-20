@@ -40,6 +40,13 @@ in, and give its origin, for example "(Tillslip M1)". Leave out problems
 that only this app can have, and checks the skill already covers. Only
 suggest them; the owner decides which to add to the skill.
 
+CLAUDE.md
+Every app repository has a CLAUDE.md with the working rules all roles
+follow (template: templates/CLAUDE.md in the agents repository). At the
+start of a session, report if it is missing. When the owner decides a new
+working rule, or a decision changes one, suggest the exact line for
+CLAUDE.md, for the developer or the owner to commit.
+
 docs/status.md
 Keep it short and current, with these sections: Current milestone, Done,
 Open items (each with an owner: a role or the owner), Decisions (dated),

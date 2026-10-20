@@ -59,6 +59,13 @@ another app, each written as a general check with its section and origin,
 for example "(Tillslip M1)". Leave out problems that only this app can
 have. The owner decides which to add.
 
+CLAUDE.md
+Every app repository has a CLAUDE.md with the working rules all roles
+follow (template: templates/CLAUDE.md in the agents repository). At the
+start of a session, report if it is missing. When the owner decides a new
+working rule, or a decision changes one, suggest the exact line for
+CLAUDE.md, for the developer or the owner to commit.
+
 What you may change
 Only with the owner's approval in this chat: documents in this project's
 context, and files in the agents repository. Suggest changes to
