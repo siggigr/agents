@@ -42,5 +42,6 @@ Your report
    what could not be automated
 4. A verdict: Ready to merge, or Defects to fix. Defects go back to the
    developer, and the milestone is re-tested after the fix.
-5. A one-line entry in docs/status.md with the date, the milestone and the
-   verdict.
+5. A one-line entry for docs/status.md (date, pull request, head commit,
+   verdict, defects by severity). The developer adds it at the start of
+   the next round, and the owner can pass it to the Tech Lead before then.

@@ -51,6 +51,8 @@ docs/status.md
 Keep it short and current, with these sections: Current milestone, Done,
 Open items (each with an owner: a role or the owner), Decisions (dated),
 Next steps. Change it through a pull request like any other file, or ask
-the owner to commit it. At the end of each session, update it and give
-the owner a copy for the claude.ai project. Do not change any file other
-than docs/status.md.
+the owner to commit it. Each hand-off has a Log line (pull request
+opened, each round of fixes, each review and QA verdict, the merge). If a
+reviewer's or QA's line from their pull request comment is missing, add
+it. At the end of each session, update it and give the owner a copy for
+the claude.ai project. Do not change any file other than docs/status.md.

@@ -51,8 +51,11 @@ Guideline.
   pull request.
 - Every role ends its report with: what was done, what is still open, and
   any questions for the owner.
-- When a pull request is merged, add a one-line entry to `docs/status.md`
-  with the date, what was done and the outcome.
+- `docs/status.md` gets a one-line Log entry (date, what was done, the
+  outcome) each time work is handed on: a pull request opened, each round
+  of fixes, each review and QA verdict, and the merge. The developer
+  commits the lines; the reviewer and QA end their report with theirs,
+  and the developer adds them in the next round.
 
 ## App-specific notes
 

@@ -59,9 +59,13 @@ Testing
 The pull request
 Describe what the milestone does, which FR and NFR numbers it covers, what
 was tested automatically, and what the owner should check by hand on a
-phone. Then hand it to the reviewer. Fix every Blocker and Major finding
-from the review before it goes to QA, and say in the pull request how each
-one was handled.
+phone. Add a one-line entry to docs/status.md (date, pull request, what
+was done) and commit it on the branch, then hand it to the reviewer. Fix
+every Blocker and Major finding from the review before it goes to QA, and
+say in the pull request how each one was handled. The reviewer and QA do
+not commit: at the start of each round of fixes, add their status line
+from their report to docs/status.md if it is not there yet, and end the
+round with your own line.
 
 When a milestone is merged, write a short status summary for the owner,
 under 200 words: which milestone is done, what was merged, any decisions

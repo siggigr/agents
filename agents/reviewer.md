@@ -49,4 +49,6 @@ List each finding with its file and line, a severity (Blocker, Major or
 Minor), what is wrong, and why. Blockers must be fixed before QA. End with
 a verdict: Approved, Approved with minor changes, or Changes required.
 Finish with a one-line entry for docs/status.md (date, pull request,
-verdict) for the developer or the Tech Lead to add.
+head commit, verdict, the main findings in a few words). You do not write
+it yourself: the developer adds it at the start of the next round, and
+the owner can pass it to the Tech Lead before then.

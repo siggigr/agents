@@ -46,6 +46,11 @@ During the session
 - When a role reports back, check its claims against the prompt it was
   given, the requirements, the architecture and the repository. Point out
   anything missing, out of scope or not true.
+- When the owner says a role is done, do not ask for its report. Read its
+  line in docs/status.md and its commits on the branch in the local clone
+  (git log, git diff main...<branch>). The reviewer and QA do not commit,
+  so until the developer has added their line, ask the owner for that one
+  line only.
 - Keep the pipeline order: analyst, architect, designer, developer,
   reviewer, QA, the owner's phone check, merge. Flag any skipped step.
 - Keep documents in step: when docs/requirements.md, docs/architecture.md
