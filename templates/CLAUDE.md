@@ -41,6 +41,9 @@ Guideline.
   layer (for example rules, data, UI), each through its own review.
 - Never print or ask for secrets. Secret and service config files stay
   untracked, with `.template` files showing their format.
+- If the app has server security rules (for example Firestore rules), only
+  the owner deploys them, from the reviewed commit, before the phone check,
+  and the deployed commit is recorded in `docs/status.md`.
 
 ## Reporting
 

@@ -1,11 +1,11 @@
 ---
 name: android-lessons-learned
-description: Use when building, reviewing or testing an Android app milestone, to check the work against problems found in earlier apps (text input, error states, data integrity, Firestore rules, layout, Icelandic text, release hygiene).
+description: Use when building, reviewing or testing an Android app milestone, to check the work against problems found in earlier apps (text input, error states, data integrity, Firestore rules, layout, Icelandic text, release hygiene, testing).
 ---
 
 # Android lessons learned
 
-Problems found and fixed in earlier apps (first Nextpost), written as
+Problems found and fixed in earlier apps (Nextpost, Tillslip), written as
 general checks. Use the sections that apply to the milestone.
 
 - Developer: check your work against the relevant sections before opening
@@ -63,7 +63,9 @@ in the change log of the document concerned.
 - [ ] [Rule] A missing record shows "not found". It is never turned into a
   blank new record or an active session. (Nextpost 21)
 - [ ] [Rule] "Permission denied" and "can't reach the server" have different
-  messages, on every read and write path. (Nextpost 20)
+  messages, on every read and write path. (Nextpost 20) Sign-in likewise
+  tells apart no account, no network and a failure, and cancelling the
+  account picker shows no error. (Tillslip M1)
 - [ ] [Rule] A brief loss of signal is handled silently from the offline
   cache. Only a definite failure shows an error. (Nextpost 22)
 - [ ] [Rule] Temporary UI state, such as a selection or highlight, is
@@ -71,6 +73,13 @@ in the change log of the document concerned.
 - [ ] [Rule] If the app is killed mid-task, reopening it resumes at the same
   place with the same data. A finished task reopens on its completion
   screen. (Nextpost 25)
+- [ ] [Rule] No loading state waits forever. After a time limit it becomes
+  a screen that says what is wrong, with Retry and a way out such as Sign
+  out. (Tillslip M1)
+- [ ] [Rule] Every step with a time limit (sign-out, clean-up, sync) is
+  tested while the network drops or is unstable, not only in airplane
+  mode. A poor network must not lock the user out until a restart.
+  (Tillslip M1)
 
 ## 3. Data integrity
 
@@ -79,6 +88,10 @@ in the change log of the document concerned.
   console or the emulator for leftovers. (Nextpost 23)
 - [ ] [Rule] Changes that span several documents happen in one batch or
   transaction: all or nothing. (Nextpost 24, 26)
+- [ ] [Rule] An action that needs the server to decide (create, join,
+  leave, invite) is never queued offline. It checks the connection first
+  and fails within about a second with a message that says what to do.
+  (Tillslip M1)
 - [ ] [Rule] Restarting or redoing something never silently overwrites
   history. Archive the old record first, in the same batch. (Nextpost 24)
 - [ ] [Rule] Generated codes and IDs handle collisions, and a dropped
@@ -140,6 +153,10 @@ in the change log of the document concerned.
   finish or go back. (Nextpost 36)
 - [ ] [Guideline] Button labels follow the state ("Set location" becomes
   "Reposition"). (Nextpost 37)
+- [ ] [Rule] All screen content takes its colours from the theme: it sits
+  on a Surface or Scaffold, and no text has a fixed colour. Check every
+  screen title in dark and light mode, including screens that only appear
+  in some states (first sign-in, errors, restart). (Tillslip M1)
 - [ ] [Guideline] An action with a cost says the cost before it runs ("This
   post drops to 50 points"). (Nextpost 38)
 
@@ -150,7 +167,9 @@ in the change log of the document concerned.
 - [ ] [Rule] No circular or self-referring messages. Each message says what
   happened and what to do. (Nextpost 40)
 - [ ] [Rule] Þ, Ð, Æ, Ö and the accented vowels render correctly in the
-  app's actual font, in every weight used. (Nextpost 41)
+  app's actual font, in every weight used, on the oldest supported Android
+  version: older versions fake weights the font file does not include.
+  (Nextpost 41, Tillslip M1)
 
 ## 9. Release hygiene
 
@@ -165,6 +184,17 @@ in the change log of the document concerned.
 - [ ] [Guideline] A cloud API key without billing may be throttled and look
   like a broken key. Check quota and billing before debugging the code.
   (Nextpost 46)
+- [ ] [Rule] Brand images such as the Google "G" are compared with the
+  original after import. Android Studio's Vector Asset import can drop
+  gradients; use the supplied PNGs or a checked vector, with a test that
+  looks at the drawn pixels. (Tillslip M1)
+
+## 10. Testing
+
+- [ ] [Rule] Fakes hide integration bugs. Every data path (read, write,
+  transaction, listener) has at least one test against the Firestore
+  emulator or the real service, not only against a fake repository.
+  (Tillslip M1)
 
 ## Adding a lesson
 
@@ -172,3 +202,14 @@ When a new app finds a problem that could happen again, add one check here
 in the matching section, written generally, marked [Rule] or [Guideline],
 with its origin, for example "(Tillslip M2)". Commit it to the agents
 repository.
+
+Keep the list short enough to be read in full. Add a lesson only when:
+
+1. it caused, or nearly caused, a real defect;
+2. it could happen in another app; and
+3. nothing else catches it already (a test, the CLAUDE.md template, the
+   android-app-bootstrap skill or an existing check). If an existing check
+   is close, extend it instead of adding a new one.
+
+Working rules (how the team works) go in the CLAUDE.md template, and setup
+steps go in the android-app-bootstrap skill.

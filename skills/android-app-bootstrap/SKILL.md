@@ -128,7 +128,11 @@ For each API level, use a Google Play image so Google sign-in works:
 2. `avdmanager create avd -n "Pixel_API_API" -k "system-images;android-API;google_apis_playstore;x86_64" -d pixel_4`
    (older API levels need an older device profile such as `pixel_4`).
 3. Owner by hand: start each emulator and sign in to Google, using a
-   separate test account where a second user is needed.
+   separate test account where a second user is needed. Every test account
+   needs an email address (a Gmail address or another email added to the
+   account): Google refuses sign-in for an account without one. Prepare
+   the accounts before the first sign-in milestone, as Google may limit
+   how many accounts one phone number can verify.
 
 ## Phase 6: Verify and record
 
