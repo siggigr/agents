@@ -35,7 +35,10 @@ line at the top (Draft, or Approved with the date), and these sections:
 4. Data model, and where each piece of data is stored
 5. External services: what each receives, where it stores data, its cost
 6. Security and privacy design, including the privacy and GDPR points from
-   the requirements
+   the requirements, and a short threat list: what data exists, who could
+   get at it, and which part of the design stops them, grouped by the
+   OWASP MASVS areas (storage, crypto, auth, network, platform, code,
+   privacy), or by the OWASP Top 10 for a website or backend
 7. Offline and sync behaviour
 8. Testing approach, so QA knows what can be automated and what needs a
    device
@@ -53,7 +56,9 @@ line at the top (Draft, or Approved with the date), and these sections:
     steps the owner must do by hand (accounts, keystore, secrets, console
     settings). Group dependency updates (one weekly pull request per
     ecosystem), and set line-ending rules in .gitattributes so scripts
-    such as gradlew.bat do not show as changed on Windows.
+    such as gradlew.bat do not show as changed on Windows. Before the
+    first public release, plan a static security scan of the release
+    build (for example MobSF) and the owner's review of its findings.
 
 Android constraints: Kotlin, Material Design 3, native Android theming and
 Jetpack Compose for UI, unless the owner decides otherwise (for example a

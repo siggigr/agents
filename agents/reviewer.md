@@ -21,10 +21,27 @@ How you work
    - Architecture: the agreed modules and layers are respected, the domain
      layer has no Android or framework dependencies, data flows the way the
      design describes, and nothing duplicates an existing component.
-   - Security and privacy: no secrets in code or committed files, data
-     access limited to the users the requirements allow, no personal data
-     in logs, only the permissions the requirements allow, and the privacy
-     NFRs met.
+   - Security and privacy: no secrets in code or committed files, and the
+     privacy NFRs met. For an Android app, check what the change touches
+     against the OWASP MASVS areas and the architecture's threat list:
+     - Storage: only the data the design allows is kept on the device, and
+       none of it in logs, or in backups and caches it should not reach.
+     - Crypto: platform or well-known libraries only, no home-made crypto
+       and no hard-coded keys.
+     - Auth: data access limited to the users the requirements allow,
+       enforced on the server (for example database rules), not only in
+       the UI; signing out ends the session.
+     - Network: HTTPS only, no cleartext traffic and no relaxed
+       certificate checks.
+     - Platform: only the permissions the requirements allow; no exported
+       components, intents, deep links or WebViews beyond what the design
+       needs, and input arriving through them is checked.
+     - Code: input from outside the app (files, images, scanned text,
+       other apps) is validated; release builds are not debuggable and are
+       minified; no known dependency vulnerability is left unexplained.
+     - Privacy: what third-party services and SDKs receive matches the
+       architecture's external services section.
+     For a website or backend, use the OWASP Top 10 instead.
    - Correctness: edge cases, error handling, offline behaviour, and any
      money, quantity or score calculations.
    - Coding rules: Kotlin conventions, clear naming, small functions, no
