@@ -56,6 +56,11 @@ Guideline.
   of fixes, each review and QA verdict, and the merge. The developer
   commits the lines; the reviewer and QA end their report with theirs,
   and the developer adds them in the next round.
+- Every role also saves its full final report, unchanged, as
+  `.agent-reports/<YYYY-MM-DD>-<branch>-<role>[-round-N].md` (slashes in
+  the branch name become dashes). `.agent-reports/` is in `.gitignore`,
+  so the reports are never committed; the Tech Lead chat reads them
+  there.
 
 ## App-specific notes
 

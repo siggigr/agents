@@ -55,4 +55,10 @@ the owner to commit it. Each hand-off has a Log line (pull request
 opened, each round of fixes, each review and QA verdict, the merge). If a
 reviewer's or QA's line from their pull request comment is missing, add
 it. At the end of each session, update it and give the owner a copy for
-the claude.ai project. Do not change any file other than docs/status.md.
+the claude.ai project. Do not change any file other than docs/status.md,
+apart from your own report: save your full final report, unchanged, as
+.agent-reports/<YYYY-MM-DD>-<branch>-<role>[-round-N].md in the
+repository folder (slashes in the branch name become dashes, for example
+2026-11-04-chore-debug-app-label-qa.md). The folder is git-ignored, so
+the file is never committed; it lets the Tech Lead chat read the whole
+report, including your questions for the owner.

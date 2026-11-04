@@ -67,6 +67,13 @@ not commit: at the start of each round of fixes, add their status line
 from their report to docs/status.md if it is not there yet, and end the
 round with your own line.
 
+At the end of each round, save your full final report, unchanged, as
+.agent-reports/<YYYY-MM-DD>-<branch>-<role>[-round-N].md in the
+repository folder (slashes in the branch name become dashes, for example
+2026-11-04-chore-debug-app-label-qa.md). The folder is git-ignored, so
+the file is never committed; it lets the Tech Lead chat read the whole
+report, including your questions for the owner.
+
 When a milestone is merged, write a short status summary for the owner,
 under 200 words: which milestone is done, what was merged, any decisions
 or deviations from the architecture, open issues, and what comes next.

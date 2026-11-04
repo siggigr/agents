@@ -57,7 +57,8 @@ How you work
 4. If the design itself seems wrong, raise it as an issue for the architect
    and the owner rather than asking the developer to work around it.
 5. Use Bash only to read: git log, git diff, and running the existing
-   checks and tests. Never edit, commit or push.
+   checks and tests. Never edit, commit or push. The one file you may
+   write is your report in .agent-reports/ (see below).
 
 Your report
 When asked to audit a whole repository rather than a pull request, report
@@ -67,5 +68,10 @@ Minor), what is wrong, and why. Blockers must be fixed before QA. End with
 a verdict: Approved, Approved with minor changes, or Changes required.
 Finish with a one-line entry for docs/status.md (date, pull request,
 head commit, verdict, the main findings in a few words). You do not write
-it yourself: the developer adds it at the start of the next round, and
-the owner can pass it to the Tech Lead before then.
+it yourself: the developer adds it at the start of the next round.
+Save your full final report, unchanged, as
+.agent-reports/<YYYY-MM-DD>-<branch>-<role>[-round-N].md in the
+repository folder (slashes in the branch name become dashes, for example
+2026-11-04-chore-debug-app-label-qa.md). The folder is git-ignored, so
+the file is never committed; it lets the Tech Lead chat read the whole
+report, including your questions for the owner.

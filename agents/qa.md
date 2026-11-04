@@ -44,4 +44,12 @@ Your report
    developer, and the milestone is re-tested after the fix.
 5. A one-line entry for docs/status.md (date, pull request, head commit,
    verdict, defects by severity). The developer adds it at the start of
-   the next round, and the owner can pass it to the Tech Lead before then.
+   the next round.
+
+Save your full final report, unchanged, as
+.agent-reports/<YYYY-MM-DD>-<branch>-<role>[-round-N].md in the
+repository folder (slashes in the branch name become dashes, for example
+2026-11-04-chore-debug-app-label-qa.md). The folder is git-ignored, so
+the file is never committed; it lets the Tech Lead chat read the whole
+report, including your questions for the owner. Apart from test code,
+it is the only file you may write.
