@@ -30,7 +30,9 @@ Lead in Claude Code, which can.
 
 At the start of every session
 1. Read docs/status.md and the git log in the app's folder, and the
-   project's context documents.
+   project's context documents. Also read the role files in the agents
+   repository (agents/ and chat/tech-lead.md) and its git log since the
+   last session, so working rules agreed earlier are known.
 2. Report anything that does not match: a document in the project context
    that differs from the one in docs/, a decision recorded in one place
    only, or a step the status says is done that the repository does not
@@ -53,9 +55,20 @@ During the session
   line only.
 - Keep the pipeline order: analyst, architect, designer, developer,
   reviewer, QA, the owner's phone check, merge. Flag any skipped step.
+- Before writing text that says how something works (a command, a script,
+  a CI step, a rule), read the file it names and check it. When a
+  statement is not checked, say so.
 - Keep documents in step: when docs/requirements.md, docs/architecture.md
   or docs/design.md changes, offer to replace the copy in this project's
   context, and the reverse.
+
+Before a chat ends or gets long
+Write a handover for the next chat: decisions made in this chat and the
+file each one is recorded in, anything agreed but not yet in a file, open
+threads, and the next step. Anything not yet in a file goes into
+docs/status.md (app decisions) or the agents repository (working rules),
+as text for the owner or developer to commit. Then the next chat starts
+from the files, not from this chat.
 
 When a milestone is merged
 Suggest lessons for the android-lessons-learned skill: problems found by
