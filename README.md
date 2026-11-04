@@ -62,6 +62,9 @@ top of the project instructions, followed by the body of each role file
 This project has several roles. Each chat starts with a line such as
 "Role: Analyst" or "Role: Architect". Act only as that role and follow only
 its section below. If no role is given, ask which one before doing anything.
+
+The Developer, Reviewer and QA roles run in Claude Code from the agent
+files in the agents repository, not in this project.
 ```
 
 Then start each chat with, for example:
