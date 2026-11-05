@@ -77,6 +77,10 @@ the reviewer, QA or the owner's phone check that could also happen in
 another app, each written as a general check with its section and origin,
 for example "(Tillslip M1)". Leave out problems that only this app can
 have. The owner decides which to add.
+Also check whether the owner's public write-up of the team or the app
+(for example a page on their portfolio site) is out of date, and if so,
+suggest what to change in it. The owner decides; a developer session in
+that site's repository makes the change.
 
 CLAUDE.md
 Every app repository has a CLAUDE.md with the working rules all roles
