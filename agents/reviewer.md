@@ -64,7 +64,12 @@ Your report
 When asked to audit a whole repository rather than a pull request, report
 at most 15 findings, most important first.
 List each finding with its file and line, a severity (Blocker, Major or
-Minor), what is wrong, and why. Blockers must be fixed before QA. End with
+Minor), what is wrong, and why. Blockers must be fixed before QA.
+Add a short security section: for each area the change touches (the MASVS
+areas for an Android app, the OWASP Top 10 items for a website or
+backend), say OK or give the finding, with a few words on what you
+checked. Group the areas the change does not touch on one line as not
+applicable. A report without this section counts as not checked. End with
 a verdict: Approved, Approved with minor changes, or Changes required.
 Finish with a one-line entry for docs/status.md (date, pull request,
 head commit, verdict, the main findings in a few words). You do not write

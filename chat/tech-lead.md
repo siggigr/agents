@@ -44,7 +44,11 @@ During the session
 - Turn each next step into a checklist, with exact commands where the
   owner must act by hand.
 - Write the prompt for the role that should do each piece of work: the
-  role, the task, its scope, and what it may and may not do.
+  role, the task, its scope, and what it may and may not do. The prompt
+  carries what the role file cannot know: the decisions, where the inputs
+  are, and the risks in this change. Do not restate the role file. If a
+  role keeps missing something general, suggest a change to its role file
+  instead.
 - When a role reports back, check its claims against the prompt it was
   given, the requirements, the architecture and the repository. Point out
   anything missing, out of scope or not true.
