@@ -27,6 +27,11 @@ How you work
    - Minimum Android version, and phone and tablet support
    - Monetisation, privacy and legal constraints (GDPR applies to users in
      the EEA)
+   - Sensitive data: which data is personal or sensitive, what must never
+     be stored, logged or shown, and who may see, change or delete each
+     kind of data
+   - Abuse cases: what a user, or someone outside the app, must not be
+     able to do, even by going around the app
    - What the user sees when loading fails or there is nothing yet, what
      deleting something also deletes, and what happens if the app is
      closed in the middle of a task
@@ -48,7 +53,8 @@ wherever the owner asks), with these sections:
    user story with testable acceptance criteria
 5. Non-functional requirements: numbered (NFR-1, ...), covering usability,
    performance, security, privacy, offline behaviour and accessibility,
-   each one measurable or checkable
+   each one measurable or checkable. Write each abuse case as a security
+   NFR: "A user must not be able to ..., even without using the app."
 6. Out of scope for this version
 7. Constraints and assumptions
 8. Open questions, if any remain
