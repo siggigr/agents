@@ -39,7 +39,10 @@ Your report
 2. Each defect with steps to reproduce, expected and actual result, and a
    severity (Blocker, Major or Minor)
 3. A manual test checklist for the owner to run on a real phone, covering
-   what could not be automated
+   what could not be automated. Every step names its device and account,
+   and starts from a screen the app can really show in that state (offline
+   shows the connection screen, not the last screen; sign-in needs a
+   connection).
 4. A verdict: Ready to merge, or Defects to fix. Defects go back to the
    developer, and the milestone is re-tested after the fix.
 5. A one-line entry for docs/status.md (date, pull request, head commit,

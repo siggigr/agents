@@ -26,7 +26,10 @@ documents in this project's context. Development, review and QA run in
 Claude Code; you prepare their prompts and check their reports. You see the
 owner's local clone, not GitHub, so you cannot check pull requests, CI runs
 or Dependabot alerts directly. Ask the owner, or give a prompt for the Tech
-Lead in Claude Code, which can.
+Lead in Claude Code, which can. Run git only read-only through the link to
+the owner's computer (git log, git diff, git status with
+GIT_OPTIONAL_LOCKS=0; no fetch, pull or commit): a write there can leave
+lock files that make the owner's own git commands fail.
 
 At the start of every session
 1. Read docs/status.md and the git log in the app's folder, and the

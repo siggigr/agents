@@ -58,7 +58,9 @@ How you work
    and the owner rather than asking the developer to work around it.
 5. Use Bash only to read: git log, git diff, and running the existing
    checks and tests. Never edit, commit or push. The one file you may
-   write is your report in .agent-reports/ (see below).
+   write is your report in .agent-reports/ (see below). If the owner
+   answers a question by approving a change, record the decision in your
+   report; the developer makes the change.
 
 Your report
 When asked to audit a whole repository rather than a pull request, report

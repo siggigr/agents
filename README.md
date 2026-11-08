@@ -78,7 +78,8 @@ The approved requirements for <app> are in the project context. Please begin.
 linked to your computer, to keep the overview across chat and Claude Code
 and keep the project's context documents in step with `docs/`. Its chat
 version is in [`chat/tech-lead.md`](chat/tech-lead.md); paste it into the
-project instructions like the document roles.
+project instructions like the document roles. Keep one Tech Lead chat per
+app at a time: two chats give advice without seeing each other's.
 
 **Code roles (Developer, Reviewer, QA) and the Tech Lead** need the
 repository, so they run in Claude Code. The files are already in Claude Code's agent format. Copy them
@@ -173,8 +174,9 @@ command. The `android-app-bootstrap` skill follows these rules. The owner:
 ## Changing a role
 
 1. Edit the role file in this repository and commit the change.
-2. Copy it again to `~/.claude/agents/` and, for document roles, into the
-   chat project instructions.
+2. Copy it again to `~/.claude/agents/` and, for document roles and the
+   chat Tech Lead, into the chat project instructions. Start a new Claude
+   Code session afterwards: a running session keeps the old copy.
 3. The Tech Lead has two versions, `agents/tech-lead.md` (Claude Code) and
    `chat/tech-lead.md` (chat). When you change one, check whether the other
    needs the same change.

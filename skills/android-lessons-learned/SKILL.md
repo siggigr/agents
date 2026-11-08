@@ -100,6 +100,11 @@ in the change log of the document concerned.
 - [ ] [Rule] Remove fields that nothing writes or reads. (Nextpost 27)
 - [ ] [Rule] Display names are not unique. Never use a name as an ID or in a
   document path. (Nextpost 32)
+- [ ] [Rule] Never end the app's own process right after a write. Saves made
+  with `apply()`, including those inside libraries such as Firebase Auth,
+  reach the disk up to 100 ms later and are lost. Before a self-restart,
+  flush them (`apply()` then `commit()` on the app's own preferences file),
+  and prove it on a device. (Tillslip D-31)
 
 ## 4. Security rules
 
@@ -114,6 +119,10 @@ in the change log of the document concerned.
   finalised records cannot be changed through the rules. (Nextpost 30)
 - [ ] [Rule] If the app uses anonymous sign-in, warn the user that clearing
   app data loses access to their data. (Nextpost 31)
+- [ ] [Rule] A "one per user" rule (one household, one active game) is
+  enforced by the rules, not only by the app: a per-user record written in
+  the same transaction. A record that points to something gone must never
+  lock the user out. (Tillslip D-30)
 
 ## 5. Calculations (scores, money, quantities)
 
@@ -159,6 +168,9 @@ in the change log of the document concerned.
   in some states (first sign-in, errors, restart). (Tillslip M1)
 - [ ] [Guideline] An action with a cost says the cost before it runs ("This
   post drops to 50 points"). (Nextpost 38)
+- [ ] [Guideline] Check the longest label at the narrowest width and the
+  largest font; a name or label never breaks inside a word. (siggigr.github.io
+  PR #5, #6)
 
 ## 8. Icelandic and other languages
 
@@ -194,7 +206,13 @@ in the change log of the document concerned.
 - [ ] [Rule] Fakes hide integration bugs. Every data path (read, write,
   transaction, listener) has at least one test against the Firestore
   emulator or the real service, not only against a fake repository.
-  (Tillslip M1)
+  A fake must not be kinder than the real thing: a fake built on
+  `StateFlow` drops equal values and hides a missing
+  `distinctUntilChanged`; use a plain `Flow`. (Tillslip M1, PR #39)
+- [ ] [Rule] CI must not fail by chance: no downloads while tests run
+  (Robolectric's Android jars as Gradle dependencies, run offline), and no
+  timing races against the emulator (test both orders one after the other,
+  and state the race as an assumption). (Tillslip PR #43, item 34)
 
 ## Adding a lesson
 
