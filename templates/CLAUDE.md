@@ -37,6 +37,11 @@ Guideline.
   the owner merges, unless the owner allows an agent to for that task.
 - Run the full local check before every push:
   `<build, lint, format and test command>`
+- Report a check as passed only from a run made after the last change in
+  the same session, judged by that command's own exit code. Old result
+  files, or test results Gradle restored from its cache (FROM-CACHE,
+  UP-TO-DATE, a build in seconds), are not a run: force execution, or say
+  the result is cached (Tillslip M2 A).
 - Keep pull requests reviewable: when a milestone grows large, split it by
   layer (for example rules, data, UI), each through its own review.
 - Never print or ask for secrets. Secret and service config files stay

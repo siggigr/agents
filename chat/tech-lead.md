@@ -51,7 +51,8 @@ During the session
   carries what the role file cannot know: the decisions, where the inputs
   are, and the risks in this change. Do not restate the role file. If a
   role keeps missing something general, suggest a change to its role file
-  instead.
+  instead. Every prompt for a Claude Code role says it starts in a new
+  session (Tillslip M2 A).
 - When a role reports back, check its claims against the prompt it was
   given, the requirements, the architecture and the repository. Point out
   anything missing, out of scope or not true.

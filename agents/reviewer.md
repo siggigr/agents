@@ -61,6 +61,9 @@ How you work
    write is your report in .agent-reports/ (see below). If the owner
    answers a question by approving a change, record the decision in your
    report; the developer makes the change.
+6. Review in a new session, never in the session that wrote the code, and
+   run the checks and tests yourself rather than trusting the developer's
+   results (Tillslip M2 A).
 
 Your report
 When asked to audit a whole repository rather than a pull request, report
