@@ -73,6 +73,11 @@ in the change log of the document concerned.
 - [ ] [Rule] If the app is killed mid-task, reopening it resumes at the same
   place with the same data. A finished task reopens on its completion
   screen. (Nextpost 25)
+- [ ] [Rule] Work that must finish (a save, an export, a clean-up) runs in a
+  scope that outlives the screen, never in `rememberCoroutineScope`, which
+  is cancelled when the screen leaves. A background refresh never swaps
+  visible content for a loading state: that rebuilds the screens and
+  cancels what they started. (Tillslip M2 B, fix-1 and D-38)
 - [ ] [Rule] No loading state waits forever. After a time limit it becomes
   a screen that says what is wrong, with Retry and a way out such as Sign
   out. (Tillslip M1)
@@ -105,6 +110,10 @@ in the change log of the document concerned.
   reach the disk up to 100 ms later and are lost. Before a self-restart,
   flush them (`apply()` then `commit()` on the app's own preferences file),
   and prove it on a device. (Tillslip D-31)
+- [ ] [Rule] Work started in one session (a scan, an upload, a picker
+  result) that comes back after a sign-out, leave or clean-up is refused,
+  not saved into the next session. Give it a ticket when it starts and
+  check the ticket before the write. (Tillslip M2 B, D-41)
 
 ## 4. Security rules
 
@@ -132,6 +141,12 @@ in the change log of the document concerned.
   example "always decreases", "never below the floor" or "parts add up to
   the total". (Nextpost 5)
 - [ ] [Rule] Caps and floors are tested at their exact edges. (Nextpost 5)
+- [ ] [Rule] Code that reads numbers from a photo, scan or import fails
+  closed: it gives a result whose numbers check out against each other
+  (lines add up to the printed total) or "nothing read", never a plausible
+  wrong number. Test it with shifted, tilted and cut-off input, not only
+  the clean sample, and write down the cases its checks cannot catch.
+  (Tillslip M2 B, D-40)
 
 ## 6. Location, sensors and maps (when used)
 
@@ -200,6 +215,11 @@ in the change log of the document concerned.
   original after import. Android Studio's Vector Asset import can drop
   gradients; use the supplied PNGs or a checked vector, with a test that
   looks at the drawn pixels. (Tillslip M1)
+- [ ] [Rule] Real captured data committed as test fixtures (OCR exports,
+  logs, screenshots) has a hygiene test that fails on card numbers, card
+  names, ID numbers and similar. The test uses its own patterns, wider
+  than the redaction code it checks: when both share one list, a gap in
+  the list passes both. (Tillslip M2 B, D-32)
 
 ## 10. Testing
 
