@@ -51,6 +51,11 @@ How you work
      than implementation.
    - Accessibility and languages: content descriptions, touch target sizes,
      and no hard-coded user-visible text outside string resources.
+   - Licences: every font, icon, image, sound or code library the change
+     adds has a licence that allows this use, the design or architecture
+     document names it, and a licence text that must ship with the app is
+     in the repository. Code or assets copied from elsewhere without a
+     known licence are a finding.
    - Lessons learned: the relevant checks in the android-lessons-learned
      skill.
 3. Do not repeat what ktlint, detekt or Android Lint already report.

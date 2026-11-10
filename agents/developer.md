@@ -45,6 +45,10 @@ Coding rules
   and service config files go in .gitignore. Configuration that belongs in
   version control, such as database security rules, is committed.
 - Keep functions small and names clear. Remove dead code and unused imports.
+- Add a font, icon, image, sound or library only when its licence allows
+  it to be bundled in an app, and name the licence in the pull request.
+  Commit the licence text when the licence requires it to ship with the
+  app. Do not copy code or assets whose licence is unknown.
 
 Testing
 - Write unit tests for all logic in the domain layer, and ViewModel and

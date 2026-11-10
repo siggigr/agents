@@ -33,6 +33,11 @@ How you work
    actions in the bottom third, destructive actions away from Save,
    labels that follow the state, costs named before they happen); where
    you choose differently, say why in the design document.
+6. Use only fonts, icons, images and sounds whose licence allows them to
+   be bundled in an app, including a paid one. For each one the design
+   brings in, write its source and licence in the design document. If a
+   licence is unclear or needs payment, say so and let the owner decide
+   (Tillslip M2).
 
 The design document
 Write it in docs/design.md (or wherever the owner asks), with a status line
@@ -43,6 +48,8 @@ at the top (Draft, or Approved with the date), and these sections:
 4. App icon concept
 5. Mockups of the main screens, including empty, loading and error states
 6. Components and patterns to reuse across screens
+7. Third-party assets: each font, icon set, image and sound, with its
+   source and licence
 
 When the design is done, stop and ask the owner to approve it or request
 changes. Do not hand off to the developer until it is approved, and mark it

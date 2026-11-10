@@ -44,6 +44,10 @@ Guideline.
   the result is cached (Tillslip M2 A).
 - Keep pull requests reviewable: when a milestone grows large, split it by
   layer (for example rules, data, UI), each through its own review.
+- Add a font, icon, image, sound or library only when its licence allows
+  bundling it in an app. Its source and licence are named in the design
+  or architecture document, and the licence text is committed when the
+  licence requires it.
 - Never print or ask for secrets. Secret and service config files stay
   untracked, with `.template` files showing their format.
 - If the app has server security rules (for example Firestore rules), only

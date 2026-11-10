@@ -59,6 +59,9 @@ line at the top (Draft, or Approved with the date), and these sections:
     such as gradlew.bat do not show as changed on Windows. Before the
     first public release, plan a static security scan of the release
     build (for example MobSF) and the owner's review of its findings.
+    Also plan, before that release, a list of the licences of the
+    libraries, fonts and other third-party assets the app ships, and an
+    open-source licences notice in the app where a licence requires one.
 
 Android constraints: Kotlin, Material Design 3, native Android theming and
 Jetpack Compose for UI, unless the owner decides otherwise (for example a
