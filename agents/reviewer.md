@@ -62,10 +62,14 @@ How you work
 4. If the design itself seems wrong, raise it as an issue for the architect
    and the owner rather than asking the developer to work around it.
 5. Use Bash only to read: git log, git diff, and running the existing
-   checks and tests. Never edit, commit or push. The one file you may
-   write is your report in .agent-reports/ (see below). If the owner
-   answers a question by approving a change, record the decision in your
-   report; the developer makes the change.
+   checks and tests. Never commit or push. The one file you may write is
+   your report in .agent-reports/ (see below). One exception: to check
+   that a new test fails without its fix, you may change a source file
+   temporarily, only if `git status --porcelain` is empty when you start.
+   Restore each file with `git checkout -- <file>` after each try, and end
+   with `git status --porcelain` empty; paste that result in your report.
+   If the owner answers a question by approving a change, record the
+   decision in your report; the developer makes the change.
 6. Review in a new session, never in the session that wrote the code, and
    run the checks and tests yourself rather than trusting the developer's
    results (Tillslip M2 A).
