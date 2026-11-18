@@ -55,7 +55,9 @@ in the change log of the document concerned.
 
 - [ ] [Rule] A failed load never looks like "nothing here yet". Show an
   error with Retry, and keep existing content visible when a refresh fails.
-  (Nextpost 17)
+  (Nextpost 17) Nor does a load that is still running, also on return to a
+  screen: show placeholders or nothing until the fresh load answers, so the
+  empty state never flashes. (Tillslip M2 C, F15)
 - [ ] [Rule] A failed load never falls through to a "create new" flow. That
   is how orphaned duplicate records get created. (Nextpost 18)
 - [ ] [Rule] Record something as loaded only after the load succeeds, so
@@ -69,7 +71,10 @@ in the change log of the document concerned.
 - [ ] [Rule] A brief loss of signal is handled silently from the offline
   cache. Only a definite failure shows an error. (Nextpost 22)
 - [ ] [Rule] Temporary UI state, such as a selection or highlight, is
-  cleared by any unrelated action. (Nextpost 12)
+  cleared by any unrelated action. (Nextpost 12) A message with an action
+  (Undo) belongs to its screen: it ends when the screen is left or when
+  another action (Save) makes it meaningless, and an ended action never
+  runs. (Tillslip M2 C, F14)
 - [ ] [Rule] If the app is killed mid-task, reopening it resumes at the same
   place with the same data. A finished task reopens on its completion
   screen. (Nextpost 25)
@@ -113,7 +118,9 @@ in the change log of the document concerned.
 - [ ] [Rule] Work started in one session (a scan, an upload, a picker
   result) that comes back after a sign-out, leave or clean-up is refused,
   not saved into the next session. Give it a ticket when it starts and
-  check the ticket before the write. (Tillslip M2 B, D-41)
+  check the ticket before the write. (Tillslip M2 B, D-41) The screen
+  state (ViewModels) of an ended session is cleared too, never reused by
+  the next session. (Tillslip M2 C, F1, D-43)
 
 ## 4. Security rules
 
@@ -146,7 +153,10 @@ in the change log of the document concerned.
   (lines add up to the printed total) or "nothing read", never a plausible
   wrong number. Test it with shifted, tilted and cut-off input, not only
   the clean sample, and write down the cases its checks cannot catch.
-  (Tillslip M2 B, D-40)
+  (Tillslip M2 B, D-40) A date read this way must be plausible (not after
+  today, not before a floor), a reading that can be taken two ways is
+  dropped, and the screen shows where the date came from, because a
+  plausible wrong date cannot be caught. (Tillslip M2 C, F13, F16)
 
 ## 6. Location, sensors and maps (when used)
 
@@ -183,6 +193,10 @@ in the change log of the document concerned.
   in some states (first sign-in, errors, restart). (Tillslip M1)
 - [ ] [Guideline] An action with a cost says the cost before it runs ("This
   post drops to 50 points"). (Nextpost 38)
+- [ ] [Rule] TalkBack announces a new dialog by itself, so its content is
+  not also a live region (it would be read twice). A screen that changes
+  in place does need a polite live region for its new heading and message.
+  (Tillslip M2 C, F11, r2-m1)
 - [ ] [Guideline] Check the longest label at the narrowest width and the
   largest font; a name or label never breaks inside a word. (siggigr.github.io
   PR #5, #6)
@@ -197,6 +211,12 @@ in the change log of the document concerned.
   app's actual font, in every weight used, on the oldest supported Android
   version: older versions fake weights the font file does not include.
   (Nextpost 41, Tillslip M1)
+- [ ] [Rule] Text that is stored, parsed or compared (dates, numbers, IDs)
+  is formatted with `Locale.ROOT`, never the phone's language. Test it
+  under a language with other digits. (Tillslip M2 C, review m4)
+- [ ] [Rule] Icelandic plurals: the "one" form also covers 21, 31 and so
+  on. Text that means exactly one (without the number) needs its own
+  string, chosen when the count is 1. (Tillslip M2 C, F9)
 
 ## 9. Release hygiene
 
@@ -230,9 +250,16 @@ in the change log of the document concerned.
   `StateFlow` drops equal values and hides a missing
   `distinctUntilChanged`; use a plain `Flow`. (Tillslip M1, PR #39)
 - [ ] [Rule] CI must not fail by chance: no downloads while tests run
-  (Robolectric's Android jars as Gradle dependencies, run offline), and no
-  timing races against the emulator (test both orders one after the other,
-  and state the race as an assumption). (Tillslip PR #43, item 34)
+  (Robolectric's Android jars as Gradle dependencies, run offline; move
+  their pins by hand when Robolectric is updated, since Dependabot skips
+  them, Tillslip PR #55), and no timing races against the emulator (test
+  both orders one after the other, and state the race as an assumption).
+  (Tillslip PR #43, item 34)
+- [ ] [Guideline] Process death is tested on a device with `am kill` while
+  another app (the camera or scanner) is in front, or with Developer
+  options > "Don't keep activities". A swipe from Recents is a stop, not a
+  kill: the saved state is thrown away on purpose. (Tillslip M2 C, step 22,
+  R13)
 
 ## Adding a lesson
 
