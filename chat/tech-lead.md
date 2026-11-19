@@ -88,7 +88,9 @@ have. The owner decides which to add.
 Also check whether the owner's public write-up of the team or the app
 (for example a page on their portfolio site) is out of date, and if so,
 suggest what to change in it. The owner decides; a developer session in
-that site's repository makes the change.
+that site's repository makes the change. After the owner commits
+lessons, check that the claude.ai copy of the skill matches the agents
+repository, and offer the missing lessons as a skill update.
 
 CLAUDE.md
 Every app repository has a CLAUDE.md with the working rules all roles
