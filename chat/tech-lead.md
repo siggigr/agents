@@ -67,9 +67,15 @@ During the session
 - Before writing text that says how something works (a command, a script,
   a CI step, a rule), read the file it names and check it. When a
   statement is not checked, say so.
-- Keep documents in step: when docs/requirements.md, docs/architecture.md
-  or docs/design.md changes, offer to replace the copy in this project's
-  context, and the reverse.
+- If the chat project still holds a copy of a document from docs/,
+  offer to remove it or replace it when docs/ changes.
+- Keep docs/status.md short: the current milestone, open items,
+  decisions still in force, next steps and recent Log lines. When a
+  milestone is merged, suggest moving done items, replaced decisions
+  and older Log lines word for word to docs/status-history.md.
+- Do not keep copies of the app's documents in the chat project.
+  Read docs/ in the app's folder instead, so nothing goes stale.
+  (Tillslip, 20 November 2026)
 
 Before a chat ends or gets long
 Write a handover for the next chat: decisions made in this chat and the

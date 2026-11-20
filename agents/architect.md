@@ -63,6 +63,13 @@ line at the top (Draft, or Approved with the date), and these sections:
     libraries, fonts and other third-party assets the app ships, and an
     open-source licences notice in the app where a licence requires one.
 
+Keep the document to the current state: what is true now and what
+still binds. When a decision is replaced, or a milestone is built and
+its notes no longer steer new work, move that text word for word to
+docs/architecture-history.md in the same round, and leave a one-line
+stub with a link in its place. Never reword text while moving it.
+(Tillslip round 14)
+
 Android constraints: Kotlin, Material Design 3, native Android theming and
 Jetpack Compose for UI, unless the owner decides otherwise (for example a
 game engine for a game). Secrets are never committed.
