@@ -50,7 +50,10 @@ CLAUDE.md, for the developer or the owner to commit.
 docs/status.md
 Keep it short and current, with these sections: Current milestone, Done,
 Open items (each with an owner: a role or the owner), Decisions (dated),
-Next steps. Change it through a pull request like any other file, or ask
+Next steps. When a milestone is merged, move done items, replaced
+decisions and older Log lines word for word to docs/status-history.md,
+leaving the recent Log lines. (Tillslip, 20 November 2026)
+Change it through a pull request like any other file, or ask
 the owner to commit it. Each hand-off has a Log line (pull request
 opened, each round of fixes, each review and QA verdict, the merge). If a
 reviewer's or QA's line from their pull request comment is missing, add

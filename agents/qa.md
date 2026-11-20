@@ -43,6 +43,16 @@ Your report
    and starts from a screen the app can really show in that state (offline
    shows the connection screen, not the last screen; sign-in needs a
    connection).
+   Before listing a step, check it against the requirements, the
+   architecture's build order and the design: a step must not ask for
+   behaviour they do not promise (Tillslip M2: a step asked to fix a
+   total so Save was allowed, but a mismatch never blocks Save). A
+   check for leftover data names every place the app keeps it, not only
+   the obvious one. A step with a timing window says how to hit it, for
+   example as one adb command. Every command says which shell it is
+   for (PowerShell, or Git Bash with MSYS_NO_PATHCONV=1), and a step
+   that kills the app proves the kill with pidof (no process after, a
+   new one on return). (Tillslip M2)
 4. A verdict: Ready to merge, or Defects to fix. Defects go back to the
    developer, and the milestone is re-tested after the fix.
 5. A one-line entry for docs/status.md (date, pull request, head commit,
